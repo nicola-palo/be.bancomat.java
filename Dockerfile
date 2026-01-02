@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-# Build a runnable jar
-RUN ./mvnw -q -DskipTests package
+# Build a runnable jar (chmod needed for Windows-originated files)
+RUN chmod +x mvnw && ./mvnw -q -DskipTests package
 
 
 # --- Run stage ---
