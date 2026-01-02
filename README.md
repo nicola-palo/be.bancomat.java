@@ -8,24 +8,24 @@ Backend REST API per il simulatore ATM, sviluppato con **Spring Boot 4** e **Jav
 - **Spring Boot 4.0.1** - Framework
 - **Spring Security** - Autenticazione JWT
 - **Spring Data JPA** - ORM
-- **MySQL 8** - Database
+- **PostgreSQL 16** - Database
 - **Maven** - Build tool
 - **Docker** - Containerizzazione
 
 ## 📋 Prerequisiti
 
 - Java 21+
-- MySQL 8.0+
+- PostgreSQL 16+
 - Maven 3.9+ (oppure usa il wrapper `./mvnw`)
 
 ## ⚙️ Configurazione
 
-### 1. Database MySQL
+### 1. Database PostgreSQL
 
-Crea il database (verrà creato automaticamente se non esiste):
+Crea il database:
 
 ```sql
-CREATE DATABASE IF NOT EXISTS atm;
+CREATE DATABASE atm;
 ```
 
 ### 2. File .env
@@ -33,10 +33,10 @@ CREATE DATABASE IF NOT EXISTS atm;
 Crea un file `.env` nella root del progetto (non verrà committato su Git):
 
 ```env
-# Database MySQL
-SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/atm?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Europe/Rome
-SPRING_DATASOURCE_USERNAME=root
-SPRING_DATASOURCE_PASSWORD=tua_password_mysql
+# Database PostgreSQL
+SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/atm
+SPRING_DATASOURCE_USERNAME=postgres
+SPRING_DATASOURCE_PASSWORD=tua_password_postgres
 
 # JWT Secret (minimo 32 caratteri)
 ATM_JWT_SECRET=una-chiave-segreta-lunga-almeno-32-caratteri
@@ -104,7 +104,7 @@ docker run -p 8080:8080 --env-file .env atm-backend
 ./mvnw test -Dtest=AuthServiceTest
 ```
 
-I test usano **H2 in-memory database**, non richiedono MySQL.
+I test usano **H2 in-memory database**, non richiedono PostgreSQL.
 
 ## 📡 API Endpoints
 
@@ -192,8 +192,8 @@ Con `ATM_SEED_ENABLED=true`, al primo avvio vengono creati:
 ### Variabili richieste in produzione
 
 ```
-SPRING_DATASOURCE_URL=jdbc:mysql://tuo-db-host:3306/atm
-SPRING_DATASOURCE_USERNAME=user_prod
+SPRING_DATASOURCE_URL=jdbc:postgresql://tuo-db-host:5432/db_bancomat
+SPRING_DATASOURCE_USERNAME=db_user
 SPRING_DATASOURCE_PASSWORD=password_sicura_prod
 ATM_JWT_SECRET=chiave-jwt-produzione-molto-lunga
 ATM_INTERNAL_API_KEY=api-key-produzione
