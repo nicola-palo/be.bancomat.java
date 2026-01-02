@@ -1,0 +1,10 @@
+target/
+.git/
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Maven local wrapper caches
+.mvn/wrapper/maven-wrapper.jar
