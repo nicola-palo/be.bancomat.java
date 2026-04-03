@@ -44,6 +44,7 @@ public class SecurityConfig {
 				.cors(Customizer.withDefaults())
 				.sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(auth -> auth
+						.requestMatchers(HttpMethod.GET, "/", "/health").permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/auth/card-login").permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/auth/validate-card").permitAll()
 						.requestMatchers(HttpMethod.POST, "/api/internal/**").permitAll() // Protected by API key filter
