@@ -22,11 +22,9 @@ public class DatabaseUrlInitializer implements ApplicationContextInitializer<Con
     public void initialize(ConfigurableApplicationContext applicationContext) {
         ConfigurableEnvironment environment = applicationContext.getEnvironment();
 
-        if (StringUtils.hasText(environment.getProperty("spring.datasource.url"))) {
-            return;
-        }
-
+        String configuredDatasourceUrl = environment.getProperty("spring.datasource.url");
         String databaseUrl = firstNonBlank(
+                configuredDatasourceUrl,
                 environment.getProperty("SPRING_DATASOURCE_URL"),
                 environment.getProperty("JDBC_DATABASE_URL"),
                 environment.getProperty("DATABASE_URL"));
@@ -36,8 +34,19 @@ public class DatabaseUrlInitializer implements ApplicationContextInitializer<Con
             return;
         }
 
+        boolean mustOverrideUrl = !StringUtils.hasText(configuredDatasourceUrl)
+                || !configuredDatasourceUrl.equals(jdbcUrl);
+
+        if (!mustOverrideUrl
+                && StringUtils.hasText(environment.getProperty("spring.datasource.username"))
+                && StringUtils.hasText(environment.getProperty("spring.datasource.password"))) {
+            return;
+        }
+
         Map<String, Object> overrides = new LinkedHashMap<>();
-        overrides.put("spring.datasource.url", jdbcUrl);
+        if (mustOverrideUrl) {
+            overrides.put("spring.datasource.url", jdbcUrl);
+        }
 
         if (!StringUtils.hasText(environment.getProperty("spring.datasource.username"))) {
             String explicitUsername = firstNonBlank(
@@ -61,7 +70,9 @@ public class DatabaseUrlInitializer implements ApplicationContextInitializer<Con
             }
         }
 
-        environment.getPropertySources().addFirst(new MapPropertySource(PROPERTY_SOURCE_NAME, overrides));
+        if (!overrides.isEmpty()) {
+            environment.getPropertySources().addFirst(new MapPropertySource(PROPERTY_SOURCE_NAME, overrides));
+        }
     }
 
     static String toJdbcPostgresUrl(String rawUrl) {
@@ -69,8 +80,12 @@ public class DatabaseUrlInitializer implements ApplicationContextInitializer<Con
             return null;
         }
 
-        if (rawUrl.startsWith("jdbc:")) {
+        // Keep only JDBC PostgreSQL URLs as-is; anything else must be normalized or ignored.
+        if (rawUrl.startsWith("jdbc:postgresql://")) {
             return rawUrl;
+        }
+        if (rawUrl.startsWith("jdbc:")) {
+            return null;
         }
 
         String normalized = rawUrl;
