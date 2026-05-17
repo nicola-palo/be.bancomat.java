@@ -6,8 +6,8 @@ import java.math.RoundingMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.azienda.demo.domain.Account;
-import com.azienda.demo.repo.AccountRepository;
+import com.azienda.demo.model.Account;
+import com.azienda.demo.repository.AccountRepository;
 import com.azienda.demo.service.exception.BadRequestException;
 import com.azienda.demo.service.exception.ForbiddenException;
 import com.azienda.demo.service.exception.NotFoundException;

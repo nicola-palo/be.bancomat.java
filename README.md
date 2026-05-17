@@ -142,7 +142,7 @@ I test usano **H2 in-memory database**, non richiedono PostgreSQL.
 ```
 BE/
 ├── src/main/java/com/azienda/demo/
-│   ├── api/                    # Controller REST
+│   ├── controller/             # Controller REST
 │   │   ├── dto/                # Data Transfer Objects
 │   │   ├── AccountController.java
 │   │   ├── AuthController.java
@@ -152,11 +152,11 @@ BE/
 │   │   ├── JwtService.java     # Gestione JWT
 │   │   └── SecurityConfig.java # Spring Security
 │   ├── data/                   # Seed dati demo
-│   ├── domain/                 # Entità JPA
+│   ├── model/                  # Entità JPA
 │   │   ├── Account.java
 │   │   ├── Card.java
 │   │   └── User.java
-│   ├── repo/                   # Repository JPA
+│   ├── repository/             # Repository JPA
 │   └── service/                # Business logic
 │       ├── exception/          # Eccezioni custom
 │       ├── AccountService.java

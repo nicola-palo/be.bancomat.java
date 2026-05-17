@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Log applicativi/locali
+*.log
+
 # Ambiente - NON COMMITTARE MAI
 .env
 .env.local

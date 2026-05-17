@@ -1,4 +1,4 @@
-package com.azienda.demo.domain;
+package com.azienda.demo.model;
 
 import java.util.ArrayList;
 import java.util.List;

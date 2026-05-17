@@ -1,4 +1,4 @@
-package com.azienda.demo.api;
+package com.azienda.demo.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.azienda.demo.api.dto.CardUnlockRequest;
-import com.azienda.demo.api.dto.CardUnlockResponse;
+import com.azienda.demo.controller.dto.CardUnlockRequest;
+import com.azienda.demo.controller.dto.CardUnlockResponse;
 import com.azienda.demo.service.AuthService;
 
 import jakarta.validation.Valid;

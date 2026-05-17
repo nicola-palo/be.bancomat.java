@@ -1,4 +1,4 @@
-package com.azienda.demo.api.dto;
+package com.azienda.demo.controller.dto;
 
 import java.math.BigDecimal;
 import java.time.Instant;

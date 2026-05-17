@@ -1,4 +1,4 @@
-package com.azienda.demo.repo;
+package com.azienda.demo.repository;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.azienda.demo.domain.Account;
+import com.azienda.demo.model.Account;
 
 import jakarta.persistence.LockModeType;
 

@@ -1,4 +1,4 @@
-package com.azienda.demo.api;
+package com.azienda.demo.controller;
 
 import java.util.Map;
 

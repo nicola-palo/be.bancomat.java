@@ -1,4 +1,4 @@
-package com.azienda.demo.api;
+package com.azienda.demo.controller;
 
 import java.time.Instant;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.azienda.demo.api.dto.ApiErrorResponse;
+import com.azienda.demo.controller.dto.ApiErrorResponse;
 import com.azienda.demo.service.exception.BadRequestException;
 import com.azienda.demo.service.exception.ForbiddenException;
 import com.azienda.demo.service.exception.NotFoundException;

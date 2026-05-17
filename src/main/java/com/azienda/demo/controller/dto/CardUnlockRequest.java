@@ -1,4 +1,4 @@
-package com.azienda.demo.api.dto;
+package com.azienda.demo.controller.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

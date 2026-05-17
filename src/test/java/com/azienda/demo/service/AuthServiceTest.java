@@ -15,11 +15,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.azienda.demo.domain.Account;
-import com.azienda.demo.domain.Card;
-import com.azienda.demo.domain.User;
-import com.azienda.demo.repo.CardRepository;
-import com.azienda.demo.repo.UserRepository;
+import com.azienda.demo.model.Account;
+import com.azienda.demo.model.Card;
+import com.azienda.demo.model.User;
+import com.azienda.demo.repository.CardRepository;
+import com.azienda.demo.repository.UserRepository;
 import com.azienda.demo.service.exception.ForbiddenException;
 import com.azienda.demo.service.exception.UnauthorizedException;
 

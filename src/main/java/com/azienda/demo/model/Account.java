@@ -1,4 +1,4 @@
-package com.azienda.demo.domain;
+package com.azienda.demo.model;
 
 import java.math.BigDecimal;
 import java.time.Instant;

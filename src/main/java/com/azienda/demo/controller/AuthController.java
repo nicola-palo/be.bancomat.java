@@ -1,4 +1,4 @@
-package com.azienda.demo.api;
+package com.azienda.demo.controller;
 
 import java.util.Optional;
 
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.azienda.demo.api.dto.AccountDto;
-import com.azienda.demo.api.dto.CardLoginRequest;
-import com.azienda.demo.api.dto.CardLoginResponse;
-import com.azienda.demo.api.dto.CardValidateRequest;
-import com.azienda.demo.api.dto.CardValidateResponse;
-import com.azienda.demo.api.dto.UserDto;
-import com.azienda.demo.domain.Account;
-import com.azienda.demo.domain.Card;
-import com.azienda.demo.domain.User;
-import com.azienda.demo.repo.CardRepository;
+import com.azienda.demo.controller.dto.AccountDto;
+import com.azienda.demo.controller.dto.CardLoginRequest;
+import com.azienda.demo.controller.dto.CardLoginResponse;
+import com.azienda.demo.controller.dto.CardValidateRequest;
+import com.azienda.demo.controller.dto.CardValidateResponse;
+import com.azienda.demo.controller.dto.UserDto;
+import com.azienda.demo.model.Account;
+import com.azienda.demo.model.Card;
+import com.azienda.demo.model.User;
+import com.azienda.demo.repository.CardRepository;
 import com.azienda.demo.service.AuthService;
 
 import jakarta.validation.Valid;

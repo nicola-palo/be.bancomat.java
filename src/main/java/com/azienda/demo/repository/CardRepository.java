@@ -1,4 +1,4 @@
-package com.azienda.demo.repo;
+package com.azienda.demo.repository;
 
 import java.util.Optional;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.azienda.demo.domain.Card;
+import com.azienda.demo.model.Card;
 
 public interface CardRepository extends JpaRepository<Card, Long> {
 	Optional<Card> findByCardNumber(String cardNumber);

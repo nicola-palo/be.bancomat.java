@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.azienda.demo.config.JwtService;
-import com.azienda.demo.domain.Card;
-import com.azienda.demo.repo.CardRepository;
+import com.azienda.demo.model.Card;
+import com.azienda.demo.repository.CardRepository;
 import com.azienda.demo.service.exception.ForbiddenException;
 import com.azienda.demo.service.exception.UnauthorizedException;
 
